@@ -3,6 +3,7 @@ package com.api.calculator.service;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Service
 public class CalculatorService {
@@ -19,10 +20,10 @@ public class CalculatorService {
         return a.multiply(b);
     }
 
-    public BigDecimal divide(BigDecimal a, BigDecimal b) {
-        if (b.compareTo(BigDecimal.ZERO) == 0) {
-            throw new ArithmeticException("ERROR: Division by zero isn't possible.. Try Again, please.");
+    public BigDecimal divide(BigDecimal num1, BigDecimal num2) {
+        if (num2.compareTo(BigDecimal.ZERO) == 0) {
+            throw new ArithmeticException("ERROR");
         }
-        return a.divide(b);
+        return num1.divide(num2, 2, RoundingMode.HALF_UP);
     }
 }
