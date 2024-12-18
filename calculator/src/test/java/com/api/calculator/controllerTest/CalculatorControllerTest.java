@@ -1,4 +1,4 @@
-package controllerTest;
+package com.api.calculator.controllerTest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

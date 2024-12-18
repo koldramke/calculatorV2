@@ -1,4 +1,6 @@
-package serviceTest;
+package com.api.calculator.serviceTest;
+
+import com.api.calculator.service.CalculatorService;
 
 import org.junit.jupiter.api.Test;
 
