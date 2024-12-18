@@ -19,7 +19,7 @@ public class CalculatorControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void AddEndpointTestok() throws Exception {
+    public void addEndpointTestok() throws Exception {
         mockMvc.perform(get("/sum")
                 .param("a", "202")
                 .param("b", "312"))
@@ -30,7 +30,7 @@ public class CalculatorControllerTest {
     }
 
     @Test
-    public void AddEndpointTestfail() throws Exception {
+    public void addEndpointTestfail() throws Exception {
         mockMvc.perform(get("/sum")
                 .param("a", "5")
                 .param("b", "6"))
@@ -41,7 +41,7 @@ public class CalculatorControllerTest {
     }
 
     @Test
-    public void SubEndpointTestOk() throws Exception {
+    public void subEndpointTestOk() throws Exception {
         mockMvc.perform(get("/sub")
                 .param("a", "20")
                 .param("b", "5"))
@@ -51,7 +51,7 @@ public class CalculatorControllerTest {
     }
 
     @Test
-    public void SubEndpointTestFail() throws Exception {
+    public void subEndpointTestFail() throws Exception {
         mockMvc.perform(get("/sub")
                 .param("a", "32")
                 .param("b", "32"))
@@ -61,7 +61,7 @@ public class CalculatorControllerTest {
     }
 
     @Test
-    public void MulEndpointTestOk() throws Exception {
+    public void mulEndpointTestOk() throws Exception {
         mockMvc.perform(get("/mul")
                 .param("a", "4")
                 .param("b", "6"))
@@ -71,7 +71,7 @@ public class CalculatorControllerTest {
     }
 
     @Test
-    public void MulEndpointTestFail() throws Exception {
+    public void mulEndpointTestFail() throws Exception {
         mockMvc.perform(get("/mul")
                 .param("a", "3")
                 .param("b", "7"))
@@ -81,7 +81,7 @@ public class CalculatorControllerTest {
     }
 
     @Test
-    public void DivEndpointTestOk() throws Exception {
+    public void divEndpointTestOk() throws Exception {
         mockMvc.perform(get("/div")
                 .param("a", "20")
                 .param("b", "4"))
@@ -91,7 +91,7 @@ public class CalculatorControllerTest {
     }
 
     @Test
-    public void DivEndpointTestFail() throws Exception {
+    public void divEndpointTestFail() throws Exception {
         mockMvc.perform(get("/div")
                 .param("a", "15456")
                 .param("b", "3"))
@@ -101,7 +101,7 @@ public class CalculatorControllerTest {
     }
 
     @Test
-    public void DivByZeroTest() throws Exception {
+    public void divByZeroTest() throws Exception {
         mockMvc.perform(get("/div")
                 .param("a", "20")
                 .param("b", "0"))
