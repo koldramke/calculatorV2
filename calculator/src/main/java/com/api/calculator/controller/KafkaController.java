@@ -14,6 +14,7 @@ public class KafkaController {
     @PostMapping("/send")
     public String sendMessage(@RequestParam String message) {
         kafkaProducerService.sendMessage("example-topic", message);
-        return "MESSAGE SENT: " + message;
+        System.out.println("MESSAGE SENT TO TOPIC: " + message);
+        return "MESSAGE SUCCESSFULLY SENT: " + message;
     }
 }
