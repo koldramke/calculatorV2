@@ -19,92 +19,127 @@ public class CalculatorControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void addEndpointTestok() throws Exception {
+    public void addEndpointTestOk() throws Exception {
+        int a = 987654321;
+        int b = 123456789;
         mockMvc.perform(get("/sum")
-                .param("a", "202")
-                .param("b", "312"))
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.result").value("514"));
-
+                .andExpect(jsonPath("$.result").value(1111111110));
     }
 
     @Test
-    public void addEndpointTestfail() throws Exception {
+    public void addEndpointTestFail() throws Exception {
+        int a = 1000000000;
+        int b = 2000000000;
         mockMvc.perform(get("/sum")
-                .param("a", "5")
-                .param("b", "6"))
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.result").value("999"));
-
+                .andExpect(jsonPath("$.result").value(999999999));
     }
 
     @Test
     public void subEndpointTestOk() throws Exception {
+        int a = 987654321;
+        int b = 123456789;
         mockMvc.perform(get("/sub")
-                .param("a", "20")
-                .param("b", "5"))
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.result").value("15"));
+                .andExpect(jsonPath("$.result").value(864197532));
     }
 
     @Test
     public void subEndpointTestFail() throws Exception {
+        int a = 1000000000;
+        int b = 1000000000;
+
         mockMvc.perform(get("/sub")
-                .param("a", "32")
-                .param("b", "32"))
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.result").value("1"));
+                .andExpect(jsonPath("$.result").value(1));
     }
 
     @Test
     public void mulEndpointTestOk() throws Exception {
+        int a = 12345;
+        int b = 6789;
+
         mockMvc.perform(get("/mul")
-                .param("a", "4")
-                .param("b", "6"))
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.result").value("24"));
+                .andExpect(jsonPath("$.result").value(83810205));
     }
 
     @Test
     public void mulEndpointTestFail() throws Exception {
+        int a = 123456789;
+        int b = 987654321;
+
         mockMvc.perform(get("/mul")
-                .param("a", "3")
-                .param("b", "7"))
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.result").value("25"));
+                .andExpect(jsonPath("$.result").value(999999999));
     }
 
     @Test
-    public void divEndpointTestOk() throws Exception {
+    public void divEndpointTestOk00() throws Exception {
+        int a = 9;
+        int b = 5;
+
         mockMvc.perform(get("/div")
-                .param("a", "20")
-                .param("b", "4"))
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.result").value(5.0));
+                .andExpect(jsonPath("$.result").value(1.8));
+    }
+
+    @Test
+    public void divEndpointTestOk01() throws Exception {
+        int a = 951;
+        int b = 753;
+
+        mockMvc.perform(get("/div")
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.result").value(1.26));
     }
 
     @Test
     public void divEndpointTestFail() throws Exception {
+        int a = 15456;
+        int b = 3;
+
         mockMvc.perform(get("/div")
-                .param("a", "15456")
-                .param("b", "3"))
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.result").value("10"));
+                .andExpect(jsonPath("$.result").value(10));
     }
 
     @Test
-    public void divByZeroTest() throws Exception {
+    public void divByZeroTestOk() throws Exception {
+        int a = 98765;
+        int b = 0;
+
         mockMvc.perform(get("/div")
-                .param("a", "20")
-                .param("b", "0"))
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isBadRequest());
         // .andExpect(jsonPath("$.error").value("ERROR: Division by zero is not

@@ -49,6 +49,12 @@ public class CalculatorServiceTest {
 
     @Test
     public void divTest02() {
+        BigDecimal result = calculatorService.divide(new BigDecimal(951), new BigDecimal(753));
+        assertTrue(result.compareTo(new BigDecimal(1)) == 0);
+    }
+
+    @Test
+    public void divTest03() {
         BigDecimal result = calculatorService.divide(new BigDecimal(8), new BigDecimal(1));
         assertTrue(result.compareTo(new BigDecimal(8)) == 0);
     }
