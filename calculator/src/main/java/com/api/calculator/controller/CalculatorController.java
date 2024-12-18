@@ -1,5 +1,7 @@
 package com.api.calculator.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +10,7 @@ import com.api.calculator.dataresponse.OperationResponse;
 import com.api.calculator.service.CalculatorService;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 @RestController
 public class CalculatorController {
@@ -38,14 +41,12 @@ public class CalculatorController {
     }
 
     @GetMapping("/div")
-    public OperationResponse divide(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
-
+    public ResponseEntity<?> divide(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
         if (b.compareTo(BigDecimal.ZERO) == 0) {
-            throw new ArithmeticException();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("error", "ERROR: Division by zero is not possible. Try again.."));
         }
-        BigDecimal result = calculatorService.divide(a, b);
-
-        return new OperationResponse(result);
-
+        return ResponseEntity.ok(Map.of("result", a.divide(b)));
     }
+
 }
