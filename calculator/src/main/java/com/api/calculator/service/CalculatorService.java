@@ -22,7 +22,7 @@ public class CalculatorService {
 
     public BigDecimal divide(BigDecimal num1, BigDecimal num2) {
         if (num2.compareTo(BigDecimal.ZERO) == 0) {
-            throw new ArithmeticException("ERROR");
+            throw new ArithmeticException();
         }
         return num1.divide(num2, 2, RoundingMode.HALF_UP);
     }
