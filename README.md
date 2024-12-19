@@ -1,4 +1,82 @@
 
+# Calculator API 
+
+
+This project is a Spring Boot application that performs a RESTful API for basic mathematic operations - addition, subtraction, multiplication and division.    
+It also integrates with Apache Kafka for messaging, allowing the application to send and receive messages through Kafka topics.
+
+### Main Operations
+
+**Arithmetic Operations** 
+
+    Addition
+    Subtraction
+    Multiplication
+    Division (with division by zero error handling)
+
+**Kafka Integration:** 
+
+    The API integrates with Apache Kafka for sending and receiving messages.
+
+    Producer: Sends messages to a Kafka topic.
+    Consumer: Listens for messages from the Kafka topic and logs them.
+
+
+
+## Build and Run the project
+
+#### Tools to run the application
+
+- [x]   Java (17, 21 or 23 versions)
+- [x]   Apache Maven
+- [x]   Docker
+- [x]   Apache Kafka and Zookeeper (through Docker) 
+
+#### Download the git repository
+
+```bash
+  https://github.com/koldramke/calculatorV2.git
+```
+
+#### After downloading 
+Access the project directory where the **pom.xml** file is located (the root of the module) - it's used to build the project with Apache Maven:
+
+```bash
+  cd calculatorV2/calculator
+
+```
+### *Make sure that you are always in the directory **calculatorV2/calculator (command line) for building and running the application from now on!***
+
+
+
+
+
+#### Building the Spring Boot using Apache Maven
+
+in the directory ***calculatorV2/calculator*** use the command below, to compile and build the project:
+```bash
+  mvn clean package
+
+```
+once is done successfully you will see this printed message in CLI:
+
+```bash
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+
+```
+#### Run the application
+in the directory ***calculatorV2/calculator*** use the command below, to run the Spring Boot application and open a server port in url» http://localhost.3000
+```bash
+java -jar target/calculator-0.0.1-SNAPSHOT.jar
+```
+Let it open and do not close the command line! Follow the next step (Running Tests)
+
+
+
+
+
 ## Running Tests
 A couple of options could be made to run the Calculator API, but two examples are showed below: running in the web browser and in the CLI as a HTTP request.
 #### Browser
@@ -89,3 +167,10 @@ Run the unit tests that are in the Docker container:
 docker run -it calculator mvn test
 
 ```
+
+
+## Author
+
+> Eduardo Grilo
+- [@koldramke](https://github.com/koldramke)
+
