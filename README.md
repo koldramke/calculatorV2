@@ -74,9 +74,6 @@ java -jar target/calculator-0.0.1-SNAPSHOT.jar
 Let it open and do not close the command line! Follow the next step (Running Tests)
 
 
-
-
-
 ## Running Tests
 A couple of options could be made to run the Calculator API, but two examples are showed below: running in the web browser and in the CLI as a HTTP request.
 #### Browser
@@ -167,6 +164,18 @@ Run the unit tests that are in the Docker container:
 docker run -it calculator mvn test
 
 ```
+
+
+## Kafka Integration
+
+The Calculator API integrates with Apache Kafka to send and receive messages asynchronously, though does not communicate between modules (rest and calculator), since those modules are defined in one single module :(
+
+docker-compose up -d
+
+POST http://localhost:3000/kafka/send?message=HiMan!
+
+MESSAGE RECEIVED FROM TOPIC: HiMan!
+
 
 
 ## Author
