@@ -87,19 +87,6 @@ The response back is a JSON file directly in the webpage:
 result	48.7
 ```
 
-```bash
-HTTP/1.1 200 
-Connection: keep-alive
-Content-Type: application/json
-Date: Thu, 19 Dec 2024 17:13:17 GMT
-Keep-Alive: timeout=60
-Transfer-Encoding: chunked
-
-{
-    "result": 24837
-}
-```
-
 #### HTTP Request
 
 in the directory ***calculatorV2/calculator*** use the command below, to request a logic operation. For example:
